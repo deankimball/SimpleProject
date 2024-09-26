@@ -1,0 +1,49 @@
+<h1 id="tableLabel">Profile</h1>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <table>
+    <thead>
+      <th></th>
+      <th></th>
+      <th>Submitted</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <label for="name">Name</label>
+        </td>
+        <td>
+          <input type="text" formControlName="name">
+        </td>
+        <td>
+          {{ profile.name }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div *ngIf="this.profileForm.controls['name'].errors ? this.profileForm.controls['name'].errors['required'] : false">Name is required</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="address">Address</label>
+        </td>
+        <td>
+          <input id="address" type="text" formControlName="address">
+        </td>
+        <td>
+          {{ profile.address }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <button class="button" type="submit" [disabled]="profileForm.invalid">Submit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+  </div>
+
+
+</form>
